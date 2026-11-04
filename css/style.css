@@ -215,6 +215,12 @@ a:hover {
 	--button-background:#EA580C;
 }
 
+/* Conference at a glance button – custom color */
+#at-a-glance {
+	--button-text:#ffffff;
+	--button-background:#DB2777;
+}
+
 /* Icons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .icon {
