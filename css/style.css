@@ -209,6 +209,12 @@ a:hover {
 	line-height:1.3;
 }
 
+/* Conference program button – custom color */
+#conference-program {
+	--button-text:#ffffff;
+	--button-background:#EA580C;
+}
+
 /* Icons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .icon {
