@@ -1,0 +1,22 @@
+/* Minimal static-backup additions; the original live site's CSS is preserved. */
+.backup-notice { padding: 8px 16px; background: #eef6fa; color: #163d52; font: 14px/1.5 system-ui, sans-serif; text-align: center; border-bottom: 1px solid #cadce5; }
+.backup-notice a { color: #164e72; text-decoration: underline; }
+.backup-placeholder { padding: 20px; margin: 20px 0; border: 2px dashed #748d9c; border-radius: 6px; background: #f4f7f9; color: #203744; font: 16px/1.6 system-ui, sans-serif; overflow-wrap: anywhere; }
+.backup-placeholder h2 { margin-top: 0; font-size: 1.25rem; }
+.backup-form-link::after { content: ' (form unavailable)'; font-size: .85em; }
+.backup-menu-open { overflow: hidden; }
+.wp-block-navigation .wp-block-navigation-submenu__toggle[aria-expanded="true"] ~ .wp-block-navigation__submenu-container { opacity: 1; visibility: visible; width: auto; height: auto; overflow: visible; }
+.wp-block-jetpack-slideshow .swiper-wrapper { display: block !important; transform: none !important; width: 100% !important; }
+.wp-block-jetpack-slideshow .swiper-slide { width: 100% !important; margin: 0 !important; }
+.wp-block-jetpack-slideshow [hidden] { display: none !important; }
+.wp-block-jetpack-slideshow .swiper-button-prev, .wp-block-jetpack-slideshow .swiper-button-next, .wp-block-jetpack-slideshow .swiper-pagination { display: none !important; }
+.backup-gallery-controls { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1rem; padding: 12px; }
+.backup-gallery-controls button { background: #164e72; border: 0; border-radius: 4px; color: white; cursor: pointer; padding: 8px 12px; font: inherit; }
+.backup-gallery-controls button:focus-visible { outline: 3px solid #b66c00; outline-offset: 3px; }
+.backup-standalone { max-width: 900px; margin: 2rem auto; padding: 0 1.25rem; font: 17px/1.7 system-ui, sans-serif; color: #203744; }
+.backup-poster-directory { width: 100%; overflow-wrap: anywhere; }
+.backup-poster { margin: 1rem 0; border: 1px solid #cadce5; border-radius: 4px; padding: 1rem; }
+.backup-poster summary { cursor: pointer; font-weight: 700; line-height: 1.6; }
+.backup-poster dt { font-weight: 700; }
+.backup-poster dd { margin: 0 0 .75rem; }
+.backup-abstract { white-space: pre-wrap; line-height: 1.7; }
