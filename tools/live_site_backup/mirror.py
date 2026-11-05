@@ -104,6 +104,12 @@ def rewrite_html(source, page, urls, source_url, embedded=None):
         if tag.name == 'object' and tag.get('type') == 'application/pdf':
             tag.attrs.pop('hidden', None)
             tag.attrs.pop('data-wp-bind--hidden', None)
+        if tag.name == 'img' and tag.get('loading') == 'lazy' and tag.find_parent(class_='wp-block-jetpack-slideshow'):
+            # Our runtime toggles the `hidden` attribute (display:none) to switch
+            # slides instead of Swiper's always-laid-out transform track, so a
+            # native lazy fetch never fires until the slide is already current —
+            # the image would be blank for the whole first paint of that slide.
+            del tag['loading']
         attributes = ('href', 'src', 'poster', 'data-src') + (('data',) if tag.name == 'object' else ())
         for attr in attributes:
             if isinstance(tag.get(attr), str):
