@@ -1,0 +1,77 @@
+name: Static backup checks
+
+"on":
+  pull_request:
+    paths:
+      - "backup/**"
+      - "tools/live_site_backup/**"
+      - ".github/workflows/backup-checks.yml"
+  push:
+    branches: [main]
+    paths:
+      - "backup/**"
+      - "tools/live_site_backup/**"
+      - ".github/workflows/backup-checks.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backup-checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate static backup
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the proposed snapshot
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: tools/live_site_backup/requirements.txt
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "22"
+      - name: Install validation dependencies
+        run: python -m pip install -r tools/live_site_backup/requirements.txt
+      - name: Test snapshot conversion and verification
+        run: python tools/live_site_backup/test_mirror.py
+      - name: Test local navigation and slideshow
+        run: node --test tools/live_site_backup/test_runtime.cjs
+      - name: Verify all static references and disabled integrations
+        run: python tools/live_site_backup/verify.py backup
+      - name: Check coverage, public poster exports, and private-file exclusion
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+          import subprocess
+          from bs4 import BeautifulSoup
+
+          root = Path("backup")
+          manifest = json.loads((root / "_archive/manifest.json").read_text())
+          assert not manifest["missing_seed_urls"], "Missing sitemap entries"
+          assert not manifest["uncaptured_links"], "Uncaptured internal links"
+          for dataset in manifest["embedded_datasets"]:
+              with (root / dataset["csv"]).open(encoding="utf-8-sig", newline="") as stream:
+                  reader = csv.DictReader(stream)
+                  rows = list(reader)
+                  assert reader.fieldnames == dataset["fields"]
+              assert len(rows) == dataset["expected_rows"]
+              page = BeautifulSoup((root / dataset["page"]).read_text(), "lxml")
+              assert len(page.select("details.backup-poster")) == len(rows)
+          tracked = subprocess.check_output(["git", "ls-files"], text=True).splitlines()
+          assert not any(path.startswith("wp_backup/") for path in tracked), "Private recovery files must stay local"
+          assert not any(path.startswith("backup/") and path.endswith((".orig", ".sql", ".gz")) for path in tracked)
+          print("Sitemap coverage, poster counts, and public-only paths verified.")
+          PY

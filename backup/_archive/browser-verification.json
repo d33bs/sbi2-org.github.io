@@ -1,0 +1,166 @@
+{
+  "live_hosts_blocked": [
+    "sbi2.org",
+    "www.sbi2.org",
+    "stats.wp.com",
+    "airtable.com"
+  ],
+  "desktop_pages_checked": 9,
+  "mobile_pages_checked": 3,
+  "desktop": [
+    {
+      "path": "/sbi2-org.github.io/backup/",
+      "title": "\ud83d\udc34 The Society of Biomolecular Imaging and Informatics",
+      "forms": 0,
+      "overflow": 0,
+      "imageErrors": [],
+      "externalResources": [],
+      "runtimeErrors": [],
+      "posterRecords": 0,
+      "pdfs": []
+    },
+    {
+      "path": "/sbi2-org.github.io/backup/2026-sbi2-conference-boston/",
+      "title": "\ud83d\udc34 SBI2 13th Annual Conference (Boston) 2026 - The Society of Biomolecular Imaging and Informatics",
+      "forms": 0,
+      "overflow": 0,
+      "imageErrors": [],
+      "externalResources": [],
+      "runtimeErrors": [],
+      "posterRecords": 0,
+      "pdfs": []
+    },
+    {
+      "path": "/sbi2-org.github.io/backup/2026-sbi2-conference-boston/sbi2-conference-boston-2026-program/",
+      "title": "\ud83d\udc34 SBI2 Conference (Boston) 2026 Program - The Society of Biomolecular Imaging and Informatics",
+      "forms": 0,
+      "overflow": 0,
+      "imageErrors": [],
+      "externalResources": [],
+      "runtimeErrors": [],
+      "posterRecords": 0,
+      "pdfs": [
+        {
+          "url": "http://127.0.0.1:64408/sbi2-org.github.io/backup/wp-content/uploads/2026/11/SBI2-2026_Full_Program_online.docx.pdf",
+          "width": 0,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "path": "/sbi2-org.github.io/backup/contact-us/",
+      "title": "\ud83d\udc34 Contact Us - The Society of Biomolecular Imaging and Informatics",
+      "forms": 0,
+      "overflow": 0,
+      "imageErrors": [],
+      "externalResources": [],
+      "runtimeErrors": [],
+      "posterRecords": 0,
+      "pdfs": []
+    },
+    {
+      "path": "/sbi2-org.github.io/backup/membership/login/",
+      "title": "\ud83d\udc34 Login - The Society of Biomolecular Imaging and Informatics",
+      "forms": 0,
+      "overflow": 0,
+      "imageErrors": [],
+      "externalResources": [],
+      "runtimeErrors": [],
+      "posterRecords": 0,
+      "pdfs": []
+    },
+    {
+      "path": "/sbi2-org.github.io/backup/2026-sbi2-conference-boston/2026-posters/",
+      "title": "\ud83d\udc34 SBI2 2026 Conference Poster Abstracts - The Society of Biomolecular Imaging and Informatics",
+      "forms": 0,
+      "overflow": 0,
+      "imageErrors": [],
+      "externalResources": [],
+      "runtimeErrors": [],
+      "posterRecords": 48,
+      "pdfs": []
+    },
+    {
+      "path": "/sbi2-org.github.io/backup/conference/2025-posters/",
+      "title": "\ud83d\udc34 SBI2 2025 Conference Poster Abstracts - The Society of Biomolecular Imaging and Informatics",
+      "forms": 0,
+      "overflow": 0,
+      "imageErrors": [],
+      "externalResources": [],
+      "runtimeErrors": [],
+      "posterRecords": 57,
+      "pdfs": []
+    },
+    {
+      "path": "/sbi2-org.github.io/backup/sbi2-europe-2026-program/",
+      "title": "\ud83d\udc34 Conference program (PDF)",
+      "forms": 0,
+      "overflow": 0,
+      "imageErrors": [],
+      "externalResources": [],
+      "runtimeErrors": [],
+      "posterRecords": 0,
+      "pdfs": [
+        {
+          "url": "http://127.0.0.1:64408/sbi2-org.github.io/backup/sbi2-europe-2026-program/index.pdf",
+          "width": 856,
+          "height": 25.59375
+        }
+      ]
+    },
+    {
+      "path": "/sbi2-org.github.io/backup/education/materials.html",
+      "title": "\ud83d\udc34 Education Materials - The Society of Biomolecular Imaging and Informatics",
+      "forms": 0,
+      "overflow": 0,
+      "imageErrors": [],
+      "externalResources": [],
+      "runtimeErrors": [],
+      "posterRecords": 0,
+      "pdfs": []
+    }
+  ],
+  "mobile": [
+    {
+      "path": "/sbi2-org.github.io/backup/",
+      "title": "\ud83d\udc34 The Society of Biomolecular Imaging and Informatics",
+      "forms": 0,
+      "overflow": 0,
+      "imageErrors": [],
+      "externalResources": [],
+      "runtimeErrors": [],
+      "posterRecords": 0,
+      "pdfs": [],
+      "menu_open": true,
+      "submenu_visible": true,
+      "menu_closed": true,
+      "slideshow_counter": "2 / 8"
+    },
+    {
+      "path": "/sbi2-org.github.io/backup/2026-sbi2-conference-boston/2026-posters/",
+      "title": "\ud83d\udc34 SBI2 2026 Conference Poster Abstracts - The Society of Biomolecular Imaging and Informatics",
+      "forms": 0,
+      "overflow": 0,
+      "imageErrors": [],
+      "externalResources": [],
+      "runtimeErrors": [],
+      "posterRecords": 48,
+      "pdfs": [],
+      "abstract_open": true,
+      "abstract_length": 1211
+    },
+    {
+      "path": "/sbi2-org.github.io/backup/conference/2025-posters/",
+      "title": "\ud83d\udc34 SBI2 2025 Conference Poster Abstracts - The Society of Biomolecular Imaging and Informatics",
+      "forms": 0,
+      "overflow": 0,
+      "imageErrors": [],
+      "externalResources": [],
+      "runtimeErrors": [],
+      "posterRecords": 57,
+      "pdfs": [],
+      "abstract_open": true,
+      "abstract_length": 1849
+    }
+  ]
+}
