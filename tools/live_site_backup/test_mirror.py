@@ -173,5 +173,25 @@ class StaticMirrorTests(unittest.TestCase):
                 mirror.render_dataset(path, 2, fields)
 
 
+    def test_slideshow_images_are_not_lazy_so_the_custom_carousel_preloads_them(self):
+        import mirror
+        source = '''<html><body><div class="wp-block-jetpack-slideshow"><ul class="swiper-wrapper">
+        <li class="swiper-slide" aria-hidden="false"><img class="wp-block-jetpack-slideshow_image" src="a.jpg"></li>
+        <li class="swiper-slide" hidden aria-hidden="true"><img class="wp-block-jetpack-slideshow_image" loading="lazy" src="b.jpg"></li>
+        <li class="swiper-slide" hidden aria-hidden="true"><img class="wp-block-jetpack-slideshow_image" loading="lazy" src="c.jpg"></li>
+        </ul></div>
+        <img loading="lazy" src="unrelated.jpg"></body></html>'''
+        text, _ = mirror.rewrite_html(source, Path('index.html'), {}, 'https://sbi2.org/')
+        soup = BeautifulSoup(text, 'html.parser')
+        slideshow_images = soup.select('.wp-block-jetpack-slideshow img')
+        self.assertEqual(len(slideshow_images), 3)
+        self.assertTrue(all(image.get('loading') is None for image in slideshow_images),
+                         'Slideshow images must not stay lazy: our runtime hides slides with '
+                         'display:none, so the browser never fires a lazy fetch until a slide '
+                         'is shown, leaving it blank at the moment it becomes current.')
+        # Lazy loading elsewhere on the page (unrelated to our custom carousel) is left alone.
+        self.assertEqual(soup.select_one('body > img')['loading'], 'lazy')
+
+
 if __name__ == '__main__':
     unittest.main()
